@@ -1,4 +1,4 @@
-var orm = require("../config/orm.js");
+var orm = require("../config/orm");
 
 let burger = {
     all: function(callback){
@@ -7,14 +7,17 @@ let burger = {
         });
     },
 
-    create: function(cols, vals, callback){
-        orm.create("burgers", cols, vals, function(res){
+    create: function(name, callback){
+        orm.create("burgers", ["name", "devoured"], [name, false]
+        ,function(res){
             callback(res);
         });
     },
 
-    update: function(objColVals, condition, callback){
-        orm.update("burgers", objColVals, condition, function(res){
+    update: function(id, callback){
+        var condition ="id" + id;
+        orm.update("burgers",
+        { devoured: true }, condition, function(res){
             callback(res);
         });
     },
