@@ -1,4 +1,5 @@
-var connection = require("../config/connection.js");
+var connection = require("./connection.js");
+
 function printQuestionMarks(num) {
     var arr =[];
     for(var i = 0; i < num; i++) {
@@ -6,6 +7,7 @@ function printQuestionMarks(num) {
     }
     return arr.toString();
 }
+
 function objToSql(ob) {
     let arr = [];
     for (var key in ob) {
@@ -13,6 +15,7 @@ function objToSql(ob) {
     }
     return arr.toString();
 }
+
 var orm = {
     all: function(tableInput, callback){
         let queryString = "SELECT * FROM " + tableInput +";";
@@ -30,7 +33,6 @@ var orm = {
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        // queryString += printQuestionMarks(vals.lenngth);
         queryString += printQuestionMarks(vals.length);
         queryString +=  ",";
         queryString +=  boolean;
@@ -50,6 +52,7 @@ var orm = {
         queryString += " WHERE ";
         queryString += condition;
         console.log(queryString);
+        
         connection.query(queryString, function (err, result){
             if (err) {
                 throw err;
