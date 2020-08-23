@@ -2,11 +2,11 @@ $(function () {
     $(".devour").on("click", function (event) {
         event.preventDefault();
         let id = $(this).data("id");
-
+        console.log(id);
         let eaten = {
             devoured: true
         };
-        $ajax("/api/burgers" + id, {
+        $.ajax("/api/burgers" + id, {
             type: "PUT",
             data: eaten
         }).then(
@@ -16,15 +16,14 @@ $(function () {
             }
         );
     });
-
-    $("submitBurger").on("submit", function (event) {
+        $(".submit").on("click", function (event) {
         event.preventDefault();
-
         let newBurger = {
-            burger_name: $("#create-burger").val().trim(),
-            devoured: 0
+            burger_name: $("#textarea1").val().trim(),
+            // devoured: 0
+            devoured: false
         };
-        $ajax("api/burgers", {
+        $.ajax("api/burgers", {
             type: "POST",
             data: newBurger
         }).then(
@@ -34,6 +33,4 @@ $(function () {
             }
         );
     });
-
-
 })

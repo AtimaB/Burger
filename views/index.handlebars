@@ -7,7 +7,6 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
 </style>
-
 <div class="row">
   <div class="col s12 m12 l12">
     <div class="card-content">
@@ -16,35 +15,35 @@
         devour it!</p>
     </div>
   </div>
-
   <div class="row">
     <form class="col s6 offset-s3">
       <div class="row">
         <div class="input-field col s12">
-          <form action="/burgers/create" method="POST">
+          {{!-- <form action="/burgers/create" method="POST"> --}}
+          <form>
             <i class="material-icons prefix">local_dining</i>
             <textarea id="textarea1" class="materialize-textarea" style="background-color: white;" name="burger_name"
               value="" id="enter_text"></textarea>
             <label for="textarea1"> Put your burger here!</label>
         </div>
-        <button type="submit" class="btn-large col s4 offset-s4" id="text-enter-button">SUBMIT!</button>
+        <button type="submit" class="submit btn-large col s4 offset-s4" id="text-enter-button">SUBMIT!</button>
     </form>
   </div>
   </form>
 </div>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="col s4 m4 l4" style="background-color: rgba(253, 253, 253, 0.76); padding: 10px;">
       <p style="font-size: 20px;">Burgers to Eat.....</p>
       {{#each burgers}} {{#unless this.devoured}}
-      <form action="/api/update/{{this.id}}?_method=PUT" method="POST">
+      {{!-- <form action="/api/update/{{this.id}}?_method=PUT" method="POST"> --}}
+      <form>
         <div class="input-group">
           <pre style="font-size: 18px;">{{this.id}}. {{this.burger_name}}</pre>
           <input input type="hidden" class="burger_id" type="text" value={{this.id}}>
-          <button class="waves-effect waves-light btn-small" type="submit" data-id="{{id}}"
-            data-eat="{{devoured}}">Devour It!</button>
+          {{!-- <button class="devour waves-effect waves-light btn-small" type="submit" data-id="{{id}}" --}}
+          <button class="devour waves-effect waves-light btn-small" type="submit" data-id="{{id}}" data-eat="{{devoured}}">Devour It!</button>
         </div>
       </form>
       {{/unless}} {{/each}}
@@ -53,7 +52,9 @@
     </div>
     <div class="col s4 m4 l4" style="background-color: rgba(253, 253, 253, 0.76); padding: 10px;">
       <p style="font-size: 20px;">Eaten Burgers.....</p>
-      {{#each burger_data}} {{#if this.devoured}}
+      {{!-- {{#each burger_data}} {{#if this.devoured}} --}}
+      {{!-- {{#each burgers}} {{#if this.devoured}} --}}
+      {{#each burgers}} {{#if this.devoured}}
       <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
       {{/if}}
       {{/each}}
