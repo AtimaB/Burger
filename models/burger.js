@@ -13,10 +13,8 @@ let burger = {
             callback(res);
         });
     },
-    // update: function(id, callback){
-    update: function(objColVals, condition, callback){ /////
-        var condition ="id" + condition;
-        orm.update("burgers", objColVals, condition, function(res){ /////
+    update: function(objColVals, condition, callback){ 
+        orm.update("burgers", objColVals, condition, function(res){ 
             callback(res);
         });
     },

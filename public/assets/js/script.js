@@ -7,10 +7,8 @@ $(function () {
         let beenEaten = {
             devoured: eaten
         };
-        // let eaten = {
-        //     devoured: true
-        // };
-        $.ajax("/api/burgers" + id, {
+      
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: beenEaten
         }).then(

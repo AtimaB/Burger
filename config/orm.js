@@ -11,7 +11,7 @@ function printQuestionMarks(num) {
 function objToSql(ob) {
     let arr = [];
     for (var key in ob) {
-        arr.push(key +"="+ value);
+        arr.push(key +"="+ ob[key]);
     }
     return arr.toString();
 }
@@ -46,7 +46,7 @@ var orm = {
         });
     },
     update: function(table, objColVals, condition, callback){
-        let queryString = "UPDATE" + table;
+        let queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
