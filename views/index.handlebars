@@ -1,12 +1,4 @@
-<style>
-  body {
-    background-image: url("/assets/images/background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  }
-</style>
+
 <div class="row">
   <div class="col s12 m12 l12">
     <div class="card-content">
@@ -40,7 +32,7 @@
         <div class="input-group">
           <pre style="font-size: 18px;">{{this.id}}. {{this.burger_name}}</pre>
           <input type="hidden" class="burger_id" type="text" value={{this.id}}>
-          <button class="devour waves-effect waves-light btn-small" type="submit" data-id="{{id}}"
+          <button class="devour btn waves-effect btn-small" type="submit" data-id="{{id}}"
             data-eat="{{devoured}}">Devour It!</button>
         </div>
       </form>
